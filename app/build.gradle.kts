@@ -29,14 +29,14 @@ android {
     buildTypes {
         getByName("debug"){
             isDebuggable = true
-            buildConfigField("String","BASE_URL","\"https://api-dot-rafiji-staging.appspot.com/\"")
+            buildConfigField("String","BASE_URL","\"https://api-dot-rafiji-staging.appspot.com/customer/\"")
             buildConfigField("String","CLIENT_ID","\"LZDJSCLC30MFBOI30C4IZT3AF3VRH4BYBUHKWMW4WKIZITWD\"")
             buildConfigField("String","CLIENT_SECRET","\"4MWLQVCYGL0W1IMRGHHUEM0BXZUBHHYL3PMIMVQAY2FUR3ZT\"")
             buildConfigField("String","API_VERSION","\"20200101\"")
         }
         getByName("release") {
             isMinifyEnabled = false
-            buildConfigField("String","BASE_URL","\"https://api-dot-rafiji-staging.appspot.com/\"")
+            buildConfigField("String","BASE_URL","\"https://api-dot-rafiji-staging.appspot.com/customer/\"")
             buildConfigField("String","CLIENT_ID","\"LZDJSCLC30MFBOI30C4IZT3AF3VRH4BYBUHKWMW4WKIZITWD\"")
             buildConfigField("String","CLIENT_SECRET","\"4MWLQVCYGL0W1IMRGHHUEM0BXZUBHHYL3PMIMVQAY2FUR3ZT\"")
             buildConfigField("String","API_VERSION","\"20200101\"")

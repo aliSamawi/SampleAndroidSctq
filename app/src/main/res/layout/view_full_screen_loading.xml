@@ -69,6 +69,7 @@
             android:focusable="true"
             android:padding="16dp"
             style="@style/TextPoppinsNormal18"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/try_again"
             android:background="?attr/selectableItemBackground"
             />
