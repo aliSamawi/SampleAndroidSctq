@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="services">SERVICES</string>
+    <string name="promotion">PROMOTION</string>
+    <string name="set_your_address">Set Your Address</string>
+    <string name="nothing_found_here">Nothing found here</string>
+    <string name="try_again">Try again</string>
+    <string name="oops_something_went_wrong">Oops! Something went wrong.</string>
 </resources>
