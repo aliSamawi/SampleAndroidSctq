@@ -22,7 +22,7 @@ object AndroidSdk {
     const val versionCode = 1
     const val versionName = "0.0.1"
 
-    const val applicationId = "com.sama.foursquare"
+    const val applicationId = "com.sama.socialteq"
     const val testInstrumentRunner = "android.support.test.runner.AndroidJUnitRunner"
 }
 

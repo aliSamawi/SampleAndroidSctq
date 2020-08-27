@@ -1,7 +1,6 @@
 package com.sama.socialteq.data.model.remote
 
 import androidx.lifecycle.LiveData
-import com.sama.foursquare.data.model.remote.CallLiveData
 import com.sama.socialteq.data.model.remote.error_handler.ErrorManager
 import retrofit2.*
 import java.lang.reflect.ParameterizedType
