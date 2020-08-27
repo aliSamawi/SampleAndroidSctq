@@ -1,5 +1,6 @@
 package com.sama.socialteq.di
 
 val appComponent = listOf(
-    repositoryModule
+    repositoryModule,
+    domainModule
 )
