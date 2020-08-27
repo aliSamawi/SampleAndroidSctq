@@ -13,5 +13,10 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setUpViews()
+    }
+
+    private fun setUpViews(){
+
     }
 }
