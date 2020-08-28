@@ -1,8 +1,12 @@
 package com.sama.socialteq.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sama.socialteq.R
+import com.sama.socialteq.data.model.remote.response.Category
 import com.sama.socialteq.data.model.remote.response.Home
 import com.sama.socialteq.presentation.base.BaseActivity
 import com.sama.socialteq.presentation.custom.FullScreenLoadingState
@@ -13,6 +17,8 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
 
     override val viewModel: HomeViewModel by viewModel()
     override fun layoutId(): Int = R.layout.activity_home
+
+    lateinit var categoryAdapter: CategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +34,16 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
             viewModel.getHomeData()
         }
 
+        categoryAdapter = CategoryAdapter(mutableListOf(), object : CategoryAdapter.CategoryClickEvent {
+            override fun onItemClicked(category: Category) {
+                //todo
+            }
+
+        })
+        rvServices.apply {
+            layoutManager = LinearLayoutManager(this@HomeActivity,LinearLayoutManager.HORIZONTAL, false)
+            adapter = categoryAdapter
+        }
     }
 
     private fun setUpObservers(){
@@ -47,6 +63,8 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
         with(homeData){
             tvTitle.text = title
             tvDescription.text = subTitle
+
+            categoryAdapter.updateItems(homeData.categories)
         }
     }
 }
