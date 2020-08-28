@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sama.socialteq.R
 import com.sama.socialteq.data.model.remote.response.Category
 import com.sama.socialteq.data.model.remote.response.Home
+import com.sama.socialteq.data.model.remote.response.Promotion
 import com.sama.socialteq.presentation.base.BaseActivity
 import com.sama.socialteq.presentation.custom.FullScreenLoadingState
 import kotlinx.android.synthetic.main.activity_home.*
@@ -19,6 +20,7 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
     override fun layoutId(): Int = R.layout.activity_home
 
     lateinit var categoryAdapter: CategoryAdapter
+    lateinit var promotionAdapter: PromotionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +46,18 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
             layoutManager = LinearLayoutManager(this@HomeActivity,LinearLayoutManager.HORIZONTAL, false)
             adapter = categoryAdapter
         }
+
+
+        promotionAdapter = PromotionAdapter(mutableListOf(), object : PromotionAdapter.PromotionClickEvent {
+            override fun onItemClicked(promotion: Promotion) {
+                //todo
+            }
+
+        })
+        rvPromotion.apply {
+            layoutManager = LinearLayoutManager(this@HomeActivity,LinearLayoutManager.HORIZONTAL, false)
+            adapter = promotionAdapter
+        }
     }
 
     private fun setUpObservers(){
@@ -65,6 +79,7 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
             tvDescription.text = subTitle
 
             categoryAdapter.updateItems(homeData.categories)
+            promotionAdapter.updateItems(homeData.promotions)
         }
     }
 }
