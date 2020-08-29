@@ -20,7 +20,7 @@
             android:id="@+id/ibBack"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@null"
+            android:background="?selectableItemBackgroundBorderless"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,8 +39,8 @@
 
         <ImageView
             android:id="@+id/ivService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="72dp"
             android:layout_marginTop="48dp"
             tools:src="@drawable/sample_car"
             app:layout_constraintTop_toBottomOf="@id/ibBack"

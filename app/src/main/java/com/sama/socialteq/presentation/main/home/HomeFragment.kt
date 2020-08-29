@@ -1,5 +1,6 @@
 package com.sama.socialteq.presentation.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -10,6 +11,7 @@ import com.sama.socialteq.data.model.remote.response.Home
 import com.sama.socialteq.data.model.remote.response.Promotion
 import com.sama.socialteq.presentation.base.BaseFragment
 import com.sama.socialteq.presentation.custom.FullScreenLoadingState
+import com.sama.socialteq.presentation.service_details.ServiceDetailsActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -44,7 +46,9 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
                 object :
                     CategoryAdapter.CategoryClickEvent {
                     override fun onItemClicked(category: Category) {
-                        //todo
+                        Intent(context,ServiceDetailsActivity::class.java).apply {
+                            putExtra(ServiceDetailsActivity.ServiceName,category.title.toLowerCase())
+                        }.launchActivity()
                     }
 
                 })
