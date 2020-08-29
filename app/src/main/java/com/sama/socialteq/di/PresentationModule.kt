@@ -6,7 +6,7 @@ import com.sama.socialteq.presentation.service_details.ServiceDetailsViewModel
 import org.koin.dsl.module
 
 val presentationModule = module {
-    single{ MainViewModel() }
-    single{ HomeViewModel(get()) }
-    single{ ServiceDetailsViewModel(get()) }
+    factory{ MainViewModel() }
+    factory{ HomeViewModel(get()) }
+    factory{ ServiceDetailsViewModel(get()) }
 }
