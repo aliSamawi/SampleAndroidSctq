@@ -24,7 +24,7 @@ class PromotionAdapter(private val promotionList :MutableList<Promotion>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PromotionViewHolder {
         return PromotionViewHolder(
-            (LayoutInflater.from(parent.context).inflate(R.layout.promotion_item, parent, false)))
+            (LayoutInflater.from(parent.context).inflate(R.layout.item_promotion, parent, false)))
     }
 
     override fun getItemCount(): Int = promotionList.size

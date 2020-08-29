@@ -10,7 +10,7 @@ import com.sama.socialteq.data.model.remote.response.Home
 import com.sama.socialteq.data.model.remote.response.Promotion
 import com.sama.socialteq.presentation.base.BaseFragment
 import com.sama.socialteq.presentation.custom.FullScreenLoadingState
-import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<HomeViewModel>() {
@@ -20,7 +20,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
     }
 
     override val viewModel: HomeViewModel by viewModel()
-    override fun layoutId(): Int = R.layout.activity_home
+    override fun layoutId(): Int = R.layout.fragment_home
 
     private var categoryAdapter: CategoryAdapter? = null
     private var promotionAdapter: PromotionAdapter? = null

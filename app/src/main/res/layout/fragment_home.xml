@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/top_home_background"
             android:orientation="vertical"
-            android:paddingTop="49dp"
+            android:paddingTop="@dimen/init_top_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -25,7 +25,7 @@ class CategoryAdapter(private val categoryList :MutableList<Category>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
-            (LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)))
+            (LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)))
     }
 
     override fun getItemCount(): Int = categoryList.size

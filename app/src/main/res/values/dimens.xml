@@ -7,4 +7,5 @@
     <dimen name="promotion_height">140dp</dimen>
     <dimen name="category_image_width">58dp</dimen>
     <dimen name="category_image_height">50dp</dimen>
+    <dimen name="init_top_margin">49dp</dimen>
 </resources>
