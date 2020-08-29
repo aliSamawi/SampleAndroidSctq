@@ -1,11 +1,10 @@
-package com.sama.socialteq.presentation.home
+package com.sama.socialteq.presentation.main.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -23,7 +22,7 @@ class PromotionAdapter(private val promotionList :MutableList<Promotion>,
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PromotionViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PromotionViewHolder {
         return PromotionViewHolder(
             (LayoutInflater.from(parent.context).inflate(R.layout.promotion_item, parent, false)))
     }

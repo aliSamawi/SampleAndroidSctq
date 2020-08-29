@@ -1,4 +1,4 @@
-package com.sama.socialteq.presentation.home
+package com.sama.socialteq.presentation.main.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +23,7 @@ class CategoryAdapter(private val categoryList :MutableList<Category>,
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
             (LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)))
     }

@@ -1,4 +1,4 @@
-package com.sama.socialteq.presentation.home
+package com.sama.socialteq.presentation.main.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -7,8 +7,7 @@ import com.sama.socialteq.data.model.remote.response.Home
 import com.sama.socialteq.domain.GetHomeUseCase
 import com.sama.socialteq.presentation.base.BaseViewModel
 
-class HomeViewModel(private val getHomeUseCase: GetHomeUseCase) : BaseViewModel(){
-
+class HomeViewModel(private val getHomeUseCase: GetHomeUseCase) : BaseViewModel() {
     private val homeDataSuccessLiveData = MediatorLiveData<Home>()
     private val homeDataErrorLiveData = MediatorLiveData<ErrorObject>()
     private val homeDataLoadingLiveData = MediatorLiveData<Boolean>()
