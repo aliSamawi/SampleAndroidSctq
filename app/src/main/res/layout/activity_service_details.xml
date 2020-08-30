@@ -6,79 +6,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".presentation.service_details.ServiceDetailsActivity"
-    >
+    tools:context=".presentation.service_details.ServiceDetailsActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="@dimen/init_top_margin">
+        android:fillViewport="true"
+        >
 
-        <ImageButton
-            android:id="@+id/ibBack"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextPoppinsNormal18"
-            tools:text="Carwash"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="@id/ibBack"
-            app:layout_constraintBottom_toBottomOf="@id/ibBack"
-            app:layout_constraintStart_toEndOf="@id/ibBack"
-            />
-
-        <ImageView
-            android:id="@+id/ivService"
-            android:layout_width="100dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="48dp"
-            tools:src="@drawable/sample_car"
-            app:layout_constraintTop_toBottomOf="@id/ibBack"
-            app:layout_constraintStart_toStartOf="@id/ibBack"
-            />
-
-        <TextView
-            android:id="@+id/tvSubService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextPoppinsBold24"
-            tools:text="Have a new car"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/ivService"
-            app:layout_constraintStart_toStartOf="@id/ibBack"
-            />
-
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextPoppinsLight18"
-            tools:text="Our services are what you want."
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tvSubService"
-            app:layout_constraintStart_toStartOf="@id/ibBack"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPlans"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:overScrollMode="never"
-            app:layout_constraintTop_toBottomOf="@id/tvDescription"
-            app:layout_constraintStart_toStartOf="@id/ibBack"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/init_top_margin"
+            android:layout_marginEnd="28dp">
+
+            <ImageButton
+                android:id="@+id/ibBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextPoppinsNormal18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/ibBack"
+                app:layout_constraintStart_toEndOf="@id/ibBack"
+                app:layout_constraintTop_toTopOf="@id/ibBack"
+                tools:text="Carwash" />
+
+            <ImageView
+                android:id="@+id/ivService"
+                android:layout_width="100dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintStart_toStartOf="@id/ibBack"
+                app:layout_constraintTop_toBottomOf="@id/ibBack"
+                tools:src="@drawable/sample_car" />
+
+            <TextView
+                android:id="@+id/tvSubService"
+                style="@style/TextPoppinsBold24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/ibBack"
+                app:layout_constraintTop_toBottomOf="@id/ivService"
+                tools:text="Have a new car" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/TextPoppinsLight18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/ibBack"
+                app:layout_constraintTop_toBottomOf="@id/tvSubService"
+                tools:text="Our services are what you want." />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="98dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintStart_toStartOf="@id/ibBack"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <com.sama.socialteq.presentation.custom.FullScreenLoadingView
         android:id="@+id/vFullScreenLoading"

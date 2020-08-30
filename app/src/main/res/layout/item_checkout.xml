@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="@dimen/checkout_width"
-    android:layout_height="@dimen/category_height"
+    android:layout_height="@dimen/checkout_height"
     android:background="@drawable/shape_service_item_bg"
     android:foreground="?selectableItemBackgroundBorderless"
     android:padding="22dp">
@@ -36,7 +36,7 @@
         style="@style/TextPoppinsNormal18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivService"
         tools:text="Carwash" />

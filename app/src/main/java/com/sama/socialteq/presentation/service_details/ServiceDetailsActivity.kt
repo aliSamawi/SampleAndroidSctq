@@ -2,7 +2,7 @@ package com.sama.socialteq.presentation.service_details
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sama.socialteq.R
@@ -56,8 +56,9 @@ class ServiceDetailsActivity: BaseActivity<ServiceDetailsViewModel>() {
 
                 })
         rvPlans.apply {
-            layoutManager = LinearLayoutManager(context,
-                LinearLayoutManager.HORIZONTAL, false)
+            val spanCount = 2
+            layoutManager = GridLayoutManager(this@ServiceDetailsActivity, spanCount)
+            addItemDecoration(GridSpacingItemDecoration(spanCount, resources.getDimensionPixelSize(R.dimen.plan_space), false))
             adapter = checkoutAdapter
         }
     }
