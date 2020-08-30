@@ -32,10 +32,28 @@
         <item name="android:textColor">@color/black1</item>
     </style>
 
+    <style name="TextPoppinsNormal18_white" >
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextPoppinsNormal12" >
         <item name="fontFamily">@font/poppins_semibold</item>
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/black1</item>
+    </style>
+
+    <style name="TextPoppinsNormal10_red" >
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/red1</item>
+    </style>
+
+    <style name="TextPoppinsNormal12_white" >
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextPoppinsItalic12" >
@@ -44,10 +62,22 @@
         <item name="android:textColor">@color/gray1</item>
     </style>
 
+    <style name="TextPoppinsItalic12_white" >
+        <item name="fontFamily">@font/poppins_italic</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextPoppinsNormal14_gray" >
         <item name="fontFamily">@font/poppins_semibold</item>
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/gray1</item>
+    </style>
+
+    <style name="TextPoppinsNormal14_blue" >
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/blue1</item>
     </style>
 
     <style name="TextPoppinsBold24" >

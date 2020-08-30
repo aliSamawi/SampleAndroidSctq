@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="@dimen/checkout_width"
+    android:layout_height="@dimen/category_height"
+    android:background="@drawable/shape_service_item_bg"
+    android:foreground="?selectableItemBackgroundBorderless"
+    android:padding="22dp">
+
+    <ImageView
+        android:id="@+id/ivService"
+        android:layout_width="@dimen/category_image_width"
+        android:layout_height="@dimen/category_image_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_sample_service_tag" />
+
+    <TextView
+        android:id="@+id/tvDiscount"
+        style="@style/TextPoppinsNormal12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_text_rounded"
+        android:padding="4dp"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="%20"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextPoppinsNormal18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivService"
+        tools:text="Carwash" />
+
+    <TextView
+        android:id="@+id/tvSubTitles"
+        style="@style/TextPoppinsNormal12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="Carwash" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        style="@style/TextPoppinsItalic12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitles"
+        tools:text="Carwash" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        style="@style/TextPoppinsNormal14_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="69.00QAR" />
+
+    <TextView
+        android:id="@+id/tvDiscountPrice"
+        style="@style/TextPoppinsNormal10_red"
+        tools:text="49.00QAR"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/tvPrice"
+        app:layout_constraintBottom_toBottomOf="@id/tvPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,8 @@
     <dimen name="general_margin_horizontal">28dp</dimen>
     <dimen name="category_width">240dp</dimen>
     <dimen name="category_height">270dp</dimen>
+    <dimen name="checkout_width">172dp</dimen>
+    <dimen name="checkout_height">260dp</dimen>
     <dimen name="promotion_width">330dp</dimen>
     <dimen name="promotion_height">140dp</dimen>
     <dimen name="category_image_width">58dp</dimen>

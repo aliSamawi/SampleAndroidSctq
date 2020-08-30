@@ -2,9 +2,11 @@ package com.sama.socialteq.presentation.service_details
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sama.socialteq.R
+import com.sama.socialteq.data.model.remote.response.Data
 import com.sama.socialteq.data.model.remote.response.ServiceDetails
 import com.sama.socialteq.presentation.base.BaseActivity
 import com.sama.socialteq.presentation.custom.FullScreenLoadingState
@@ -20,6 +22,7 @@ class ServiceDetailsActivity: BaseActivity<ServiceDetailsViewModel>() {
     override val viewModel: ServiceDetailsViewModel by viewModel()
     override fun layoutId(): Int = R.layout.activity_service_details
 
+    private var checkoutAdapter: CheckoutAdapter? = null
     private val serviceName : String by lazy {
         intent?.getStringExtra(ServiceName) ?: ""
     }
@@ -40,6 +43,22 @@ class ServiceDetailsActivity: BaseActivity<ServiceDetailsViewModel>() {
 
         ibBack.setOnClickListener {
             onBackPressed()
+        }
+
+        checkoutAdapter =
+            CheckoutAdapter(
+                mutableListOf(),
+                object :
+                    CheckoutAdapter.CheckoutClickEvent {
+                    override fun onItemClicked(checkout:Data) {
+                        //todo clicked
+                    }
+
+                })
+        rvPlans.apply {
+            layoutManager = LinearLayoutManager(context,
+                LinearLayoutManager.HORIZONTAL, false)
+            adapter = checkoutAdapter
         }
     }
 
@@ -69,6 +88,8 @@ class ServiceDetailsActivity: BaseActivity<ServiceDetailsViewModel>() {
                 .load(image.originalUrl_3x)
                 .apply(requestOptions)
                 .into(ivService)
+
+            checkoutAdapter?.updateItems(data.data)
         }
     }
 }
