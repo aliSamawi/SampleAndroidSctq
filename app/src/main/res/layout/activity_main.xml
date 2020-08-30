@@ -11,5 +11,11 @@
         android:layout_height="match_parent"
         />
 
+    <com.sama.socialteq.presentation.custom.BottomTabNavigation
+        android:id="@+id/bottomTabNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
