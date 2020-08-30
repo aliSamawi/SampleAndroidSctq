@@ -8,6 +8,9 @@ import com.sama.socialteq.R
 
 class BottomTabNavigation : LinearLayout{
 
+    private val itemViewList : ArrayList<Pair<String,BottomTabItem>> = arrayListOf()
+    private var selectedIndexTab = -1
+
     constructor(context: Context) : super(context) {
         init()
     }
@@ -40,7 +43,19 @@ class BottomTabNavigation : LinearLayout{
             tabItem.layoutParams = params
             tabItem.setText(key.first)
             tabItem.setImage(key.second)
+            itemViewList.add(Pair(key.first,tabItem))
             mainLayout.addView(tabItem)
+        }
+    }
+
+    fun setTabIndex(index:Int){
+        if (index <= itemViewList.size){
+            if (selectedIndexTab > 0){
+                itemViewList[selectedIndexTab].second.deselectItem()
+            }
+
+            selectedIndexTab = index
+            itemViewList[selectedIndexTab].second.selectItem()
         }
     }
 }

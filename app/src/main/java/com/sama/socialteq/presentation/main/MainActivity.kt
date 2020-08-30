@@ -23,6 +23,8 @@ class MainActivity : BaseActivity<MainViewModel>() {
             Pair("Settings",R.drawable.ic_settings),
             Pair("Profile",R.drawable.ic_profile),
             Pair("Info",R.drawable.ic_info)))
+
+        bottomTabNavigation.setTabIndex(0)
     }
 
     private fun loadHome(){

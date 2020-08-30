@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import com.sama.socialteq.R
 
 
@@ -48,5 +49,15 @@ class BottomTabItem : LinearLayout{
 
     fun setImage(@DrawableRes drawable : Int){
         ivHeader?.setBackgroundResource(drawable)
+    }
+
+    fun selectItem(){
+        tvTitle?.visibility = View.VISIBLE
+        ivHeader?.setColorFilter(ContextCompat.getColor(context, R.color.blue2))
+    }
+
+    fun deselectItem(){
+        tvTitle?.visibility = View.GONE
+        ivHeader?.setColorFilter(ContextCompat.getColor(context, R.color.gray1))
     }
 }
