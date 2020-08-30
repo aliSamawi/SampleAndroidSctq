@@ -3,6 +3,7 @@ package com.sama.socialteq.presentation.main
 import android.os.Bundle
 import com.sama.socialteq.R
 import com.sama.socialteq.presentation.base.BaseActivity
+import com.sama.socialteq.presentation.custom.BottomTabNavigation
 import com.sama.socialteq.presentation.main.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -25,12 +26,18 @@ class MainActivity : BaseActivity<MainViewModel>() {
             Pair("Info",R.drawable.ic_info)))
 
         bottomTabNavigation.setTabIndex(0)
+        bottomTabNavigation.bottomTabClickListener = object : BottomTabNavigation.BottomTabClickListener{
+            override fun onItemClicked(index: Int, tabName: String) {
+                //todo tab changed
+            }
+
+        }
     }
 
     private fun loadHome(){
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.contentContainer, HomeFragment())
-        transaction.addToBackStack(HomeFragment.TAG)
+        transaction.replace(R.id.contentContainer, HomeFragment())
+//        transaction.addToBackStack(HomeFragment.TAG)
         transaction.commit()
     }
 }

@@ -2,7 +2,6 @@ package com.sama.socialteq.presentation.custom
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,8 +13,10 @@ import com.sama.socialteq.R
 
 class BottomTabItem : LinearLayout{
 
+    private var mainLayout: LinearLayout? = null
     private var tvTitle: TextView? = null
     private var ivHeader: ImageView? = null
+    private var clickListener: OnClickListener? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -41,6 +42,10 @@ class BottomTabItem : LinearLayout{
     private fun setupView() {
         tvTitle = findViewById(R.id.tvTitle)
         ivHeader = findViewById(R.id.ivHeader)
+        mainLayout = findViewById(R.id.mainLayout)
+        mainLayout?.setOnClickListener{
+            clickListener?.onClick(it)
+        }
     }
 
     fun setText(text:String){
@@ -48,7 +53,7 @@ class BottomTabItem : LinearLayout{
     }
 
     fun setImage(@DrawableRes drawable : Int){
-        ivHeader?.setBackgroundResource(drawable)
+        ivHeader?.setImageResource(drawable)
     }
 
     fun selectItem(){
@@ -57,7 +62,12 @@ class BottomTabItem : LinearLayout{
     }
 
     fun deselectItem(){
-        tvTitle?.visibility = View.GONE
+        tvTitle?.visibility = View.INVISIBLE
         ivHeader?.setColorFilter(ContextCompat.getColor(context, R.color.gray1))
+    }
+
+    override fun setOnClickListener(l: OnClickListener?) {
+        super.setOnClickListener(l)
+        this.clickListener = l
     }
 }

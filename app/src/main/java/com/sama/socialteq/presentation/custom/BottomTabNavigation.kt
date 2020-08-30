@@ -9,7 +9,9 @@ import com.sama.socialteq.R
 class BottomTabNavigation : LinearLayout{
 
     private val itemViewList : ArrayList<Pair<String,BottomTabItem>> = arrayListOf()
-    private var selectedIndexTab = -1
+    private var selectedIndexTab = 0
+
+    var bottomTabClickListener: BottomTabClickListener? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -34,28 +36,36 @@ class BottomTabNavigation : LinearLayout{
     fun setItemList(keyDrawableList : List<Pair<String,Int>>){
         val mainLayout = findViewById<LinearLayout>(R.id.mainHolder)
         mainLayout.removeAllViews()
-        keyDrawableList.forEach { key ->
+        keyDrawableList.forEachIndexed { index, pair ->
             val tabItem = BottomTabItem(context)
             val params = LayoutParams(
                 0, LayoutParams.MATCH_PARENT
             )
             params.weight = 1.0f
             tabItem.layoutParams = params
-            tabItem.setText(key.first)
-            tabItem.setImage(key.second)
-            itemViewList.add(Pair(key.first,tabItem))
+            tabItem.setText(pair.first)
+            tabItem.setImage(pair.second)
+            tabItem.setOnClickListener {
+                setTabIndex(index)
+                bottomTabClickListener?.onItemClicked(index, pair.first)
+            }
+            itemViewList.add(Pair(pair.first,tabItem))
             mainLayout.addView(tabItem)
         }
     }
 
     fun setTabIndex(index:Int){
-        if (index <= itemViewList.size){
-            if (selectedIndexTab > 0){
+        if (index <= itemViewList.size && index != selectedIndexTab){
+            if (selectedIndexTab >= 0){
                 itemViewList[selectedIndexTab].second.deselectItem()
             }
 
             selectedIndexTab = index
             itemViewList[selectedIndexTab].second.selectItem()
         }
+    }
+
+    interface BottomTabClickListener{
+        fun onItemClicked(index: Int, tabName: String)
     }
 }
