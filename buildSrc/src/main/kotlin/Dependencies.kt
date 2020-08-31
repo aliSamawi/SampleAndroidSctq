@@ -23,7 +23,7 @@ object AndroidSdk {
     const val versionName = "0.0.1"
 
     const val applicationId = "com.sama.socialteq"
-    const val testInstrumentRunner = "android.support.test.runner.AndroidJUnitRunner"
+    const val testInstrumentRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
 
 object Libraries {
