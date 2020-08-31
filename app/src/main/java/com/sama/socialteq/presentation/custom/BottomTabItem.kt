@@ -8,6 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import com.sama.socialteq.R
 
 
@@ -57,12 +59,14 @@ class BottomTabItem : LinearLayout{
     }
 
     fun selectItem(){
+        TransitionManager.beginDelayedTransition(mainLayout!!, AutoTransition().apply { duration = 200 })
         tvTitle?.visibility = View.VISIBLE
         ivHeader?.setColorFilter(ContextCompat.getColor(context, R.color.blue2))
     }
 
     fun deselectItem(){
-        tvTitle?.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(mainLayout!!, AutoTransition().apply { duration = 50 })
+        tvTitle?.visibility = View.GONE
         ivHeader?.setColorFilter(ContextCompat.getColor(context, R.color.gray1))
     }
 

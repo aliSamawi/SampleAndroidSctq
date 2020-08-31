@@ -25,7 +25,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
             Pair("Profile",R.drawable.ic_profile),
             Pair("Info",R.drawable.ic_info)))
 
-        bottomTabNavigation.setTabIndex(0)
         bottomTabNavigation.bottomTabClickListener = object : BottomTabNavigation.BottomTabClickListener{
             override fun onItemClicked(index: Int, tabName: String) {
                 //todo tab changed
