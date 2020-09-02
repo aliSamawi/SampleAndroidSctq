@@ -1,4 +1,4 @@
-package com.sama.socialteq.di
+package com.sama.socialteq.api.di
 
 
 import com.sama.socialteq.data.repository.Repository
@@ -10,14 +10,14 @@ import org.koin.dsl.module
 
 val testRepositoryModule = module {
 
-    single<Repository>(qualifier  = qualifier(TestInstanceNames.TEST_SERVICE.name)) { RepositoryImp(get()) }
+    single<Repository> { RepositoryImp(get()) }
 
     /**
      * Data sources
      */
-    factory<CloudDataSource>(qualifier = qualifier(TestInstanceNames.TEST_SERVICE.name)) {
+    factory<CloudDataSource>() {
         CloudDataSourceIml(
-            get(qualifier = qualifier(InstanceNames.SERVICE.name))
+            get()
         )
     }
 }

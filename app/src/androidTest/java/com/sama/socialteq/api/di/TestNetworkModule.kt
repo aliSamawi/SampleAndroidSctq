@@ -1,4 +1,4 @@
-package com.sama.socialteq.di
+package com.sama.socialteq.api.di
 
 
 import com.sama.socialteq.BuildConfig
@@ -8,7 +8,6 @@ import com.sama.socialteq.data.repository.remote.Apis
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.qualifier.qualifier
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -25,7 +24,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
                 level = HttpLoggingInterceptor.Level.BODY
             }
 
-    factory(qualifier  = qualifier(TestInstanceNames.TEST_SERVICE.name)) {
+    factory {
         OkHttpClient
             .Builder()
             .apply {
@@ -43,7 +42,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
     /**
      * Retrofit instances
      */
-    factory(qualifier  = qualifier(TestInstanceNames.TEST_SERVICE.name)) {
+    factory {
         Retrofit.Builder()
             .client(get())
             .baseUrl(baseUrl)
@@ -57,7 +56,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
     /**
      * Services instances
      */
-    single(qualifier  = qualifier(TestInstanceNames.TEST_SERVICE.name)) {
+    single {
         get<Retrofit>().create(Apis::class.java)
     }
 }

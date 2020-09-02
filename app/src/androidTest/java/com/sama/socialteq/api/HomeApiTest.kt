@@ -1,23 +1,18 @@
 package com.sama.socialteq.api
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.sama.socialteq.api.utils.TestObserver
 import com.sama.socialteq.data.repository.remote.CloudDataSource
-import com.sama.socialteq.di.TestInstanceNames
-import com.sama.socialteq.di.testNetworkModule
-import com.sama.socialteq.di.testRepositoryModule
+import com.sama.socialteq.api.di.testNetworkModule
+import com.sama.socialteq.api.di.testRepositoryModule
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.junit.*
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.koin.core.KoinComponent
 import org.koin.core.context.loadKoinModules
-import org.koin.core.context.startKoin
 import org.koin.core.inject
-import org.koin.core.qualifier.qualifier
 
 /**
  *
@@ -29,10 +24,10 @@ import org.koin.core.qualifier.qualifier
 class HomeApiTest : KoinComponent {
     private val server: MockWebServer = MockWebServer()
     private val MOCK_WEBSERVER_PORT = 8000
-    private val cloudDataSource: CloudDataSource by inject(qualifier(TestInstanceNames.TEST_SERVICE.name))
+    private val cloudDataSource: CloudDataSource by inject()
 
     @get:Rule
-    private val instantTaskExecutorRule = InstantTaskExecutorRule()
+    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Before
     fun init() {
@@ -41,10 +36,10 @@ class HomeApiTest : KoinComponent {
 
         loadKoinModules (
 
-                listOf(
-                    testRepositoryModule,
-                    testNetworkModule(server.url("/"))
-                )
+            listOf(
+                testRepositoryModule,
+                testNetworkModule(server.url("/"))
+            )
 
         )
     }
@@ -56,14 +51,15 @@ class HomeApiTest : KoinComponent {
     }
 
     @Test
-    fun testSignUpApiWithSuccessResponse() {
+    fun testHomeTitleWithSuccessResponse() {
         server.apply {
             enqueue(MockResponse().setBody(
                 MockResponseFileReader(
                     "home.json"
                 ).content))
         }
-        val response = cloudDataSource.getHomeData()
-        println("response: $response")
+        val testResponse = TestObserver.test(cloudDataSource.getHomeData())
+        testResponse.awaitValue()
+        Assert.assertEquals("Book Now!",testResponse.value?.data?.title)
     }
 }
