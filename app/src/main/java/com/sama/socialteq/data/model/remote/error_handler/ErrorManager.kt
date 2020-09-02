@@ -57,13 +57,7 @@ class ErrorManager {
             var errorJsonObject = JSONObject()
             try {
                 errorJsonObject = JSONObject(response?.errorBody()?.string())
-                val errorsArray: JSONArray = errorJsonObject.getJSONArray("errors")
-                if (errorsArray.length() == 1)
-                    errorMessage.append(errorsArray.getString(0))
-                else
-                    for (i in 0 until errorsArray.length()) {
-                        errorMessage.append("${errorsArray.getString(i)}\n")
-                    }
+                errorMessage.append(errorJsonObject.get("message"))
             } catch (e: Exception) {
                 if (BuildConfig.DEBUG) {
                     e.printStackTrace()
