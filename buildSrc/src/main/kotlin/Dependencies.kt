@@ -37,23 +37,32 @@ object Libraries {
         val constraintLayout = "1.1.3"
         val coroutines = "1.1.1"
 
+        val lifecycleArch = "1.1.1"
+
         val androidxLifeCycle = "2.2.0"
 
         val retrofit = "2.6.0"
         val retrofitGson = "2.4.0"
         val gson = "2.8.5"
-        val retrofitCoroutines = "0.9.2"
+
         val loggingInterceptor = "4.0.0"
 
         val glide = "4.11.0"
 
-        val dagger = "2.27"
-
         val koin = "2.1.5"
+        val junit = "4.12"
+        val testRunner = "1.3.0"
+        val mockWebserver = "4.0.0"
     }
 
     val kotlinCoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
+
+    val lifeCycleExtensions = "android.arch.lifecycle:extensions:${Versions.lifecycleArch}"
+    val lifeCycleViewModel = "android.arch.lifecycle:viewmodel:${Versions.lifecycleArch}"
+    val lifeCycleLiveData = "android.arch.lifecycle:livedata:${Versions.lifecycleArch}"
+    val lifeCycleTest = "android.arch.core:core-testing:${Versions.lifecycleArch}"
+    val lifeCycleCompiler = "android.arch.lifecycle:compiler:${Versions.lifecycleArch}"
 
     val androidxLifeCycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifeCycle}"
 
@@ -82,8 +91,13 @@ object Libraries {
     val koin = "org.koin:koin-android:${Versions.koin}"
     val koinScope = "org.koin:koin-android-scope:${Versions.koin}"
     val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+    val koinTest = "org.koin:koin-test:${Versions.koin}"
 
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+
+    val junit = "junit:junit:${Versions.junit}"
+    val testRunner = "androidx.test:runner:${Versions.testRunner}"
+    val mockWebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebserver}"
 
 }

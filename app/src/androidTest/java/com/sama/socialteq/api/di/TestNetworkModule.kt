@@ -24,7 +24,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
                 level = HttpLoggingInterceptor.Level.BODY
             }
 
-    factory {
+    factory(override = true) {
         OkHttpClient
             .Builder()
             .apply {
@@ -42,7 +42,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
     /**
      * Retrofit instances
      */
-    factory {
+    factory(override = true) {
         Retrofit.Builder()
             .client(get())
             .baseUrl(baseUrl)
@@ -56,11 +56,7 @@ fun testNetworkModule(baseUrl: HttpUrl) = module {
     /**
      * Services instances
      */
-    single {
+    single(override = true) {
         get<Retrofit>().create(Apis::class.java)
     }
-}
-
-enum class TestInstanceNames {
-    TEST_SERVICE
 }

@@ -12,7 +12,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.koin.core.KoinComponent
 import org.koin.core.context.loadKoinModules
-import org.koin.core.inject
+import org.koin.test.inject
+import org.koin.test.KoinTest
 
 /**
  *
@@ -21,7 +22,7 @@ import org.koin.core.inject
  */
 
 @RunWith(JUnit4::class)
-class HomeApiTest : KoinComponent {
+class HomeApiTest : KoinTest {
     private val server: MockWebServer = MockWebServer()
     private val MOCK_WEBSERVER_PORT = 8000
     private val cloudDataSource: CloudDataSource by inject()

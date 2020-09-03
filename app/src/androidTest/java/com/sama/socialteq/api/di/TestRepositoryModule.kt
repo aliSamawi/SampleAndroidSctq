@@ -9,12 +9,12 @@ import org.koin.dsl.module
 
 val testRepositoryModule = module {
 
-    single<Repository> { RepositoryImp(get()) }
+    single<Repository>(override = true) { RepositoryImp(get()) }
 
     /**
      * Data sources
      */
-    factory<CloudDataSource>() {
+    factory<CloudDataSource>(override = true) {
         CloudDataSourceIml(
             get()
         )
